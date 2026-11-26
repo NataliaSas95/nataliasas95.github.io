@@ -65,8 +65,10 @@ h1{margin:0;font-family:var(--serif);font-weight:400;font-size:52px;line-height:
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{display:inline-flex;padding:4px 12px;border-radius:999px;border:1px solid var(--border);font-size:12.5px;color:var(--text);transition:border-color .2s,color .2s}
 .chip:hover{border-color:var(--accent);color:var(--bright)}
-.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px}
-.num{font-family:var(--serif);font-style:italic;font-size:36px;line-height:1;color:var(--accent)}
+.hw-list{display:flex;flex-direction:column;gap:20px}
+.hw{margin:0;font-family:var(--serif);font-style:italic;font-size:23px;line-height:1.15;color:var(--accent)}
+.pg .hwt{margin-top:4px;font-size:14px;line-height:1.55;color:var(--text)}
+.mono-logo{background:var(--raise);box-shadow:inset 0 0 0 1px var(--border);font-family:var(--serif);font-style:italic;font-size:26px;color:var(--accent)}
 .works{display:flex;flex-wrap:wrap;gap:18px}
 .wk{flex:1 1 300px;display:flex;flex-direction:column;gap:12px;padding:26px 26px 28px;border:1px solid var(--border);border-radius:18px;background:var(--panel);transition:border-color .25s,transform .25s}
 .wk:hover{border-color:var(--accent);transform:translateY(-2px)}
@@ -105,19 +107,17 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 
 <section style="display:flex;flex-direction:column;gap:14px">
 <h2 class="lbl">About</h2>
-<p>Product manager with 7+ years in retail and FMCG IT, working where business, data and technology meet. I take initiatives from problem diagnosis and process mapping, through delivery, to rollout.</p>
+<p>Product manager with 7+ years in retail and FMCG IT. My strength is understanding both sides: how the business process works and how software gets built, across the whole development lifecycle.</p>
 <p style="color:var(--muted)">Today I own the platform behind one of Poland's deposit return systems. Before that, six years at Eurocash Group building BI and data products.</p>
 </section>
 
 <section style="display:flex;flex-direction:column;gap:20px">
-<h2 class="lbl">At a glance</h2>
-<div class="stats">
-<div><div class="num">7+</div><p class="cap" style="margin-top:8px">years in retail &amp; FMCG IT</p></div>
-<div><div class="num">3 mo</div><p class="cap" style="margin-top:8px">from joining to the national go-live</p></div>
-<div><div class="num">2</div><p class="cap" style="margin-top:8px">retail chains moved to Power BI in one year</p></div>
-<div><div class="num">1</div><p class="cap" style="margin-top:8px">data model for the whole group</p></div>
-<div><div class="num">20+</div><p class="cap" style="margin-top:8px">people coordinated in parallel</p></div>
-<div><div class="num">5</div><p class="cap" style="margin-top:8px">business areas served, from logistics to finance</p></div>
+<h2 class="lbl">How I work</h2>
+<div class="hw-list">
+<div><p class="hw">Process first</p><p class="hwt">I start with how the business process really works, then turn it into requirements IT can build.</p></div>
+<div><p class="hw">The whole lifecycle</p><p class="hwt">Discovery, requirements, sprints, testing, UAT, release and further development. I know what each stage of the SDLC needs.</p></div>
+<div><p class="hw">Two languages</p><p class="hwt">I explain business needs to engineers and technical limits to the business.</p></div>
+<div><p class="hw">AI as a teammate</p><p class="hwt">I use AI tools every day and enjoy finding where they make work faster. This site is one example.</p></div>
 </div>
 </section>
 </aside>
@@ -173,9 +173,16 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 <div class="tl-i"><span class="dot on"></span><div><h4 class="role">IT Project Manager</h4><p class="meta">Nov 2021 - Jun 2025 · 3 yrs 8 mos</p></div></div>
 <div class="tl-i"><span class="dot"></span><div><h4 class="role">Junior IT Project Manager</h4><p class="meta">Jul 2019 - Oct 2021 · 2 yrs 4 mos</p></div></div>
 <div class="tl-i"><span class="dot"></span><div><h4 class="role">Junior Trade Marketing Manager <span style="font-weight:400;color:var(--muted)">· Kontigo</span></h4><p class="meta">Jan 2019 - Jun 2019 · 6 mos</p></div></div>
-<div class="tl-i"><span class="dot"></span><div><h4 class="role">Management Trainee</h4><p class="meta">Oct 2018 - Dec 2018 · 3 mos</p></div></div>
+<div class="tl-i"><span class="dot"></span><div><h4 class="role">Management Trainee <span style="font-weight:400;color:var(--muted)">· Talent Development Program</span></h4><p class="meta">Oct 2018 - Dec 2018 · 3 mos</p><p class="cap" style="margin-top:4px">Selective program for talented candidates, rotating across head office, stores and warehouses.</p></div></div>
 </div>
 <p class="cap">BI, data and software products for logistics, sales, purchasing, marketing and finance. Budgets, vendors and cross-functional teams.</p>
+</div>
+</article>
+<article class="entry">
+<div class="logo mono-logo" aria-hidden="true">M</div>
+<div class="stack">
+<div class="row"><h3 class="co">Meridian's</h3><span class="meta">2016 - 2018</span></div>
+<div class="tl-i"><span class="dot on"></span><div><h4 class="role">Event Manager</h4><p class="cap" style="margin-top:2px">Planning and running events at a restaurant.</p></div></div>
 </div>
 </article>
 </div>
@@ -202,6 +209,7 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 <div class="tl-i"><span class="dot on"></span><div><h4 class="role">Software Engineering</h4><p class="meta">Postgraduate studies · 2024</p></div></div>
 <div class="tl-i"><span class="dot"></span><div><h4 class="role">Engineering Management</h4><p class="meta">MSc · 2020</p></div></div>
 <div class="tl-i"><span class="dot"></span><div><h4 class="role">Logistics</h4><p class="meta">BEng · 2018</p></div></div>
+<div class="tl-i"><span class="dot"></span><div><h4 class="role">Enactus</h4><p class="meta">Student organization · building business projects</p></div></div>
 </div>
 </div>
 </article>
