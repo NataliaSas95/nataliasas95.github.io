@@ -73,6 +73,11 @@ h1{margin:0;font-family:var(--serif);font-weight:400;font-size:52px;line-height:
 .wk h3{margin:0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.15;color:var(--bright)}
 .skills{display:flex;flex-wrap:wrap;gap:30px 36px;padding:30px}
 .skg{flex:1 1 260px;display:flex;flex-direction:column;gap:12px}
+.skg .extra{display:none}
+.skg.open .extra{display:inline-flex}
+.more{font-family:var(--sans);font-size:12.5px;min-height:30px;padding:4px 12px;border-radius:999px;border:1px dashed var(--accent);background:transparent;color:var(--accent);cursor:pointer;transition:background .2s}
+.more:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.more:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:38px 36px}
 footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding-top:24px;border-top:1px solid var(--border)}
 .links{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px;font-size:13.5px}
@@ -192,10 +197,10 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 <section id="skills">
 <div class="sh"><h2 class="h2">Skills</h2><span class="line"></span><span class="idx">03</span></div>
 <div class="card skills">
-<div class="skg"><h3 class="role">Product</h3><div class="chips"><span class="chip">Roadmap &amp; backlog</span><span class="chip">Discovery</span><span class="chip">User stories</span><span class="chip">Acceptance criteria</span><span class="chip">UX/UI co-design</span><span class="chip">UAT</span><span class="chip">Release management</span></div></div>
-<div class="skg"><h3 class="role">Leadership &amp; delivery</h3><div class="chips"><span class="chip">Cross-functional teams</span><span class="chip">Board reporting</span><span class="chip">Onboarding &amp; hiring</span><span class="chip">Vendors &amp; SLAs</span><span class="chip">Fixed price &amp; T&amp;M</span><span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">Waterfall</span><span class="chip">PRINCE2</span></div></div>
-<div class="skg"><h3 class="role">Data &amp; technology</h3><div class="chips"><span class="chip">Data models</span><span class="chip">Power BI</span><span class="chip">SQL (basic)</span><span class="chip">APIs &amp; POS integrations</span><span class="chip">SAP data exchange</span><span class="chip">Microsoft Azure</span><span class="chip">AI tools</span></div></div>
-<div class="skg"><h3 class="role">Process &amp; regulation</h3><div class="chips"><span class="chip">BPMN as-is / to-be</span><span class="chip">Workshops</span><span class="chip">Regulations &amp; GDPR</span><span class="chip">Roles &amp; permissions</span><span class="chip">Audits &amp; controls</span></div></div>
+<div class="skg"><h3 class="role">Product</h3><div class="chips"><span class="chip">Roadmap &amp; backlog</span><span class="chip">Discovery</span><span class="chip">User stories</span><span class="chip">Release management</span><span class="chip extra">Acceptance criteria</span><span class="chip extra">UX/UI co-design</span><span class="chip extra">UAT</span><button class="more" type="button" aria-expanded="false" data-n="3">+3 more</button></div></div>
+<div class="skg"><h3 class="role">Leadership &amp; delivery</h3><div class="chips"><span class="chip">Cross-functional teams</span><span class="chip">Scrum</span><span class="chip">Vendors &amp; SLAs</span><span class="chip">Board reporting</span><span class="chip extra">Onboarding &amp; hiring</span><span class="chip extra">Fixed price &amp; T&amp;M</span><span class="chip extra">Kanban</span><span class="chip extra">Waterfall</span><span class="chip extra">PRINCE2</span><button class="more" type="button" aria-expanded="false" data-n="5">+5 more</button></div></div>
+<div class="skg"><h3 class="role">Data &amp; technology</h3><div class="chips"><span class="chip">SDLC end to end</span><span class="chip">Power BI</span><span class="chip">Data models</span><span class="chip">APIs &amp; POS integrations</span><span class="chip extra">SQL (basic)</span><span class="chip extra">SAP data exchange</span><span class="chip extra">Microsoft Azure</span><span class="chip extra">AI tools</span><button class="more" type="button" aria-expanded="false" data-n="4">+4 more</button></div></div>
+<div class="skg"><h3 class="role">Process &amp; regulation</h3><div class="chips"><span class="chip">BPMN as-is / to-be</span><span class="chip">Regulations &amp; GDPR</span><span class="chip">Workshops</span><span class="chip">Roles &amp; permissions</span><span class="chip extra">Audits &amp; controls</span><button class="more" type="button" aria-expanded="false" data-n="1">+1 more</button></div></div>
 </div>
 </section>
 
@@ -281,6 +286,13 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
       mode = b.getAttribute('data-mode');
       try { localStorage.setItem('theme', mode); } catch (e) {}
       apply();
+    });
+  });
+  document.querySelectorAll('.skg .more').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var g = b.closest('.skg'), open = g.classList.toggle('open');
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.textContent = open ? 'Less' : '+' + b.getAttribute('data-n') + ' more';
     });
   });
   if (mq.addEventListener) mq.addEventListener('change', function () { if (mode === 'auto') apply(); });
