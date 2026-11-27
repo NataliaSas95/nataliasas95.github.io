@@ -391,6 +391,12 @@ h1{font-size:40px}
   });
   var nav = document.querySelector('.nav'), menuBtn = document.querySelector('.menu-btn');
   function closeMenu() { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  document.querySelector('.brand').addEventListener('click', function (e) {
+    e.preventDefault();
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    history.replaceState(null, '', location.pathname + location.search);
+  });
   menuBtn.addEventListener('click', function () {
     var open = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
