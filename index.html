@@ -347,7 +347,6 @@ h1{font-size:40px}
       b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     if (save) {
-      try { localStorage.setItem('lang', lang); } catch (e) {}
       try { history.replaceState(null, '', (lang === 'pl' ? '?lang=pl' : location.pathname) + location.hash); } catch (e) {}
     }
   }
@@ -355,7 +354,7 @@ h1{font-size:40px}
     b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); });
   });
   var initial = 'en';
-  try { initial = localStorage.getItem('lang') || 'en'; } catch (e) {}
+  try { localStorage.removeItem('lang'); } catch (e) {}
   var qp = (location.search.match(/[?&]lang=(pl|en)/) || [])[1];
   if (qp) initial = qp;
   setLang(initial, false);
